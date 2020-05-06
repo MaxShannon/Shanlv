@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Shanlv.EfDbModels.DbTable;
+using Shanlv.DomainModel;
 
 namespace Shanlv.EfDbModels
 {

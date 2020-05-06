@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
 
-namespace Shanlv.EfDbModels.DbTable
+namespace Shanlv.DomainModel
 {
     public class Cargo : BaseEntity
     {

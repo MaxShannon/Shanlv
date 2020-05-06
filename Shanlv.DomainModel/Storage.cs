@@ -1,4 +1,4 @@
-﻿namespace Shanlv.EfDbModels.DbTable
+﻿namespace Shanlv.DomainModel
 {
     public class Storage : BaseEntity
     {
