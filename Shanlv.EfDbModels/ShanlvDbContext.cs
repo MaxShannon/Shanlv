@@ -12,8 +12,8 @@ namespace Shanlv.EfDbModels
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "server=10.28.7.12;database=Shanlv;uid=sa;pwd=Admin123456";
-            optionsBuilder.UseSqlServer(connectionString);
+            //var connectionString = "server=10.28.7.12;database=Shanlv;uid=sa;pwd=Admin123456";
+            //optionsBuilder.UseSqlServer(connectionString);
         }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)

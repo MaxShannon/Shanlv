@@ -27,7 +27,7 @@ namespace Shanlv.DotNetCore
             services.AddDbContext<ShanlvDbContext>(a =>
             {
                 a.EnableSensitiveDataLogging();
-                a.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Database=EFCoreDemo; Trusted_connection=true;");
+                a.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
         }
 
