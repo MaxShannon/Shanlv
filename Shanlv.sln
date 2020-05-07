@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shanlv.Bll", "Shanlv.Bll\Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shanlv.IBll", "Shanlv.IBll\Shanlv.IBll.csproj", "{2F6661F4-3494-4312-94E4-C0FBDD3AAB4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shanlv.DotNetCore.Tests", "UserController.Tests\Shanlv.DotNetCore.Tests.csproj", "{6E4530B8-855F-47C9-A05C-33E6F30FA67B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2F6661F4-3494-4312-94E4-C0FBDD3AAB4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F6661F4-3494-4312-94E4-C0FBDD3AAB4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F6661F4-3494-4312-94E4-C0FBDD3AAB4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E4530B8-855F-47C9-A05C-33E6F30FA67B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E4530B8-855F-47C9-A05C-33E6F30FA67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E4530B8-855F-47C9-A05C-33E6F30FA67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E4530B8-855F-47C9-A05C-33E6F30FA67B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
