@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Shanlv.Bll;
 using Shanlv.EfDbModels;
+using Shanlv.IBll;
 
 namespace Shanlv.DotNetCore
 {
@@ -21,8 +23,7 @@ namespace Shanlv.DotNetCore
         {
             services.AddControllersWithViews();
 
-                //services.AddSingleton<IRepository<Student>, InMemoryRepository>();
-            
+            services.AddSingleton<IBaseService, BaseService>();
 
             services.AddDbContext<ShanlvDbContext>(a =>
             {

@@ -21,14 +21,17 @@ namespace Shanlv.DotNetCore.Controllers
 
         public IActionResult Index()
         {
-            //var t1 = _shanlvDbContext.Users.ToList();
-            //User user = new User();
+            var t1 = _shanlvDbContext.Users;
+            User user = new User();
 
-            //user.UserName = "max";
-
-            //_shanlvDbContext.Users.Add(user);
-            //_shanlvDbContext.SaveChanges();
-            //var t2 = _shanlvDbContext.Users.ToList();
+            user.UserName = "max";
+            //[IsDelete] bit NOT NULL,
+            //[InspectId] int NOT NULL,
+            //[InspectTime] datetime2 NOT NULL,
+            //[UserName] nvarchar(max) NULL,
+            _shanlvDbContext.Users.Add(user);
+            _shanlvDbContext.SaveChanges();
+            var t2 = _shanlvDbContext.Users.ToList();
             return View();
         }
 
