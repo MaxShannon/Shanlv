@@ -4,12 +4,13 @@ namespace Shanlv.DomainModel
 {
     public class Cargo : BaseEntity
     {
+        public string CargoName { get; set; }
+        public ICollection<Shipment> Shipments { get; set; }
+
         public Cargo()
         {
-            Shipments = new List<Shipment>();
+            Shipments = new HashSet<Shipment>();
         }
-        public string CargoName { get; set; }
-        public List<Shipment> Shipments { get; set; }
 
     }
 }

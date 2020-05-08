@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Shanlv.Bll;
+using Shanlv.Dal;
 using Shanlv.DomainModel.ViewModel;
 using Shanlv.EfDbModels;
 using Shanlv.IBll;
+using Shanlv.IDal;
 
 namespace Shanlv.DotNetCore.Controllers
 {
@@ -14,13 +18,15 @@ namespace Shanlv.DotNetCore.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ShanlvDbContext _shanlvDbContext;
-        private readonly IBaseService _baseService;
+        private readonly IUserService _userService;
 
-        public UserController(ILogger<HomeController> logger, ShanlvDbContext shanlvDbContext, IBaseService baseService)
+        public UserController(ILogger<HomeController> logger, ShanlvDbContext shanlvDbContext, IUserService userService)//
         {
             _logger = logger;
             _shanlvDbContext = shanlvDbContext;
-            _baseService = baseService;
+            _userService = null; //userService;
+            //var services = new ServiceCollection();
+            //services.AddSingleton<IUserService, UserService>();
         }
 
         public IActionResult Index()
@@ -28,11 +34,12 @@ namespace Shanlv.DotNetCore.Controllers
             return View();
         }
 
-        [HttpPost]
+        //[HttpPost]
         public IActionResult Add(UserViewModel model)
         {
             // ceshi
-            _baseService.Add();
+            model.UserName = "newMax";
+            _userService.Add(model);
             return Json("");
         }
     }

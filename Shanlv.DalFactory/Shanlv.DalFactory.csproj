@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shanlv.DomainModel\Shanlv.DomainModel.csproj" />
+    <ProjectReference Include="..\Shanlv.Dal\Shanlv.Dal.csproj" />
+    <ProjectReference Include="..\Shanlv.IDal\Shanlv.IDal.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections;
 
 namespace Shanlv.IBll
 {
-    public interface IBaseService
+    public interface IBaseService<T> where T : class, new()
     {
-        void GetAll();
 
-        void Add();
+        int Add(T model);
 
 
         //public void Method()

@@ -1,18 +1,23 @@
 ﻿using System;
+using Shanlv.EfDbModels;
 using Shanlv.IBll;
 
 namespace Shanlv.Bll
 {
-    public class BaseService : IBaseService
+    public class BaseService<T> : IBaseService<T> where T : class, new()
     {
-        public void Add()
+        private readonly ShanlvDbContext _db;
+
+        public BaseService(ShanlvDbContext db)
         {
-            throw new NotImplementedException();
+            _db = db;
         }
 
-        public void GetAll()
+        public int Add(T model)
         {
-            throw new NotImplementedException();
+            _db.Set<T>().Add(model);
+            return _db.SaveChanges();
         }
+
     }
 }

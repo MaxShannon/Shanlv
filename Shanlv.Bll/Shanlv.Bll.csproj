@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Shanlv.DalFactory\Shanlv.DalFactory.csproj" />
+    <ProjectReference Include="..\Shanlv.EfDbModels\Shanlv.EfDbModels.csproj" />
     <ProjectReference Include="..\Shanlv.IBll\Shanlv.IBll.csproj" />
+    <ProjectReference Include="..\Shanlv.IDal\Shanlv.IDal.csproj" />
   </ItemGroup>
 
 </Project>

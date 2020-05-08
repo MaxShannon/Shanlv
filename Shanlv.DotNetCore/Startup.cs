@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Shanlv.Bll;
 using Shanlv.EfDbModels;
 using Shanlv.IBll;
+using Shanlv.IDal;
 
 namespace Shanlv.DotNetCore
 {
@@ -23,7 +24,8 @@ namespace Shanlv.DotNetCore
         {
             services.AddControllersWithViews();
 
-            services.AddSingleton<IBaseService, BaseService>();
+            services.AddScoped<IUserService, UserService>();
+            //services.AddSingleton<IUserDal, UserDal>();
 
             services.AddDbContext<ShanlvDbContext>(a =>
             {
