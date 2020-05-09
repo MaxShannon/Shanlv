@@ -24,15 +24,20 @@ namespace Shanlv.DotNetCore.Controllers
         {
             _logger = logger;
             _shanlvDbContext = shanlvDbContext;
-            _userService = null; //userService;
-            //var services = new ServiceCollection();
-            //services.AddSingleton<IUserService, UserService>();
+            _userService = userService;
+        }
+
+        public IActionResult Login(string userName, string password)
+        {
+            return Redirect(Url.Action("Index"));
         }
 
         public IActionResult Index()
         {
             return View();
         }
+
+
 
         //[HttpPost]
         public IActionResult Add(UserViewModel model)

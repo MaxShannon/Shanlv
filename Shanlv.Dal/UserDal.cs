@@ -17,12 +17,12 @@ namespace Shanlv.Dal
         }
 
 
-        public int Add(User model)
-        {
-            //var user = new User(model);
-            //Db.Users.Add(user);
-            return Db.SaveChanges();
-        }
+        //public int Add(User model)
+        //{
+        //    //var user = new User(model);
+        //    Db.Users.Add(model);
+        //    return Db.SaveChanges();
+        //}
 
         public IEnumerable<User> GetAllUser()
         {

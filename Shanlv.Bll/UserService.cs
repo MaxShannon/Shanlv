@@ -1,15 +1,13 @@
-﻿using Shanlv.DomainModel;
-using Shanlv.DomainModel.ViewModel;
+﻿using Shanlv.DomainModel.ViewModel;
 using Shanlv.EfDbModels;
 using Shanlv.IBll;
+using Shanlv.IDal;
 using System.Collections.Generic;
 using System.Linq;
-using Shanlv.DalFactory;
-using Shanlv.IDal;
 
 namespace Shanlv.Bll
 {
-    public class UserService : IUserService // : BaseService<User>
+    public class UserService : IUserService  //: BaseService<User>
     {
         private readonly ShanlvDbContext _db;
         private readonly IUserDal _userDal;
@@ -17,13 +15,12 @@ namespace Shanlv.Bll
         public UserService(ShanlvDbContext db, IUserDal userDal)
         {
             _db = db;
-            _userDal = StaticDalFactory.GetUserDal(); // userDal;
+            _userDal = userDal; 
         }
 
         public int Add(UserViewModel model)
         {
-            _userDal.Add(model.ToUser());
-            return _db.SaveChanges();
+            return _userDal.Add(model.ToUser());
         }
 
         public IEnumerable<UserViewModel> GetAllUser()

@@ -6,11 +6,13 @@ namespace Shanlv.DomainModel
     public class User : BaseEntity
     {
         public string UserName { get; set; }
-        public ICollection<Order> Orders { get; set; }
+
+        public string Phone { get; set; }
+        //public ICollection<Order> Orders { get; set; }
 
         public User()
         {
-            Orders = new HashSet<Order>(); // HashSet 与 list 区别
+            //Orders = new HashSet<Order>(); // HashSet 与 list 区别
         }
 
         public User(UserViewModel model)

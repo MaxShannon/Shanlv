@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Shanlv.Bll;
+using Shanlv.Dal;
 using Shanlv.EfDbModels;
 using Shanlv.IBll;
 using Shanlv.IDal;
@@ -25,7 +26,7 @@ namespace Shanlv.DotNetCore
             services.AddControllersWithViews();
 
             services.AddScoped<IUserService, UserService>();
-            //services.AddSingleton<IUserDal, UserDal>();
+            services.AddScoped<IUserDal, UserDal>();
 
             services.AddDbContext<ShanlvDbContext>(a =>
             {
