@@ -1,4 +1,5 @@
-﻿using Shanlv.DomainModel.DataModel.DataTableModel;
+﻿using System.Collections.Generic;
+using Shanlv.DomainModel.DataModel.DataTableModel;
 using Shanlv.DomainModel.ViewModel;
 using Shanlv.EfDbModels;
 using Shanlv.IBll;
@@ -18,13 +19,14 @@ namespace Shanlv.Bll
             Db = db;
         }
 
-        public IQueryable<SubsidiaryViewModel> GetSubsidiaries(in int pageIndex, in int pageSize)
+        public IEnumerable<SubsidiaryViewModel> GetSubsidiaries(in int pageIndex, in int pageSize)
         {
             // check ok
             var query = _subsidiaryDal.GetAllEntities(null);
-            //var queryViewModel = query.ToViewModel();
-            //return query;
-            return null;
+            var list = query.ToList();
+            var viewModelList = list.ToViewModel<IEnumerable<SubsidiaryViewModel>>();
+            //var viewModelList = list.ToViewModel<List<SubsidiaryViewModel>>();
+            return viewModelList;
         }
 
 

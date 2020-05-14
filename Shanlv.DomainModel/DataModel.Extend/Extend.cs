@@ -30,10 +30,10 @@ namespace Shanlv.DomainModel.DataModel.Extend
         //}
 
         public static TViewModel ToViewModel<TViewModel>(this object model)
-            where TViewModel : class, new()// T == UserViewModel
+        //where TViewModel : class, new()// T == UserViewModel
         {
-            var viewModel = new TViewModel();
             var viewModelType = typeof(TViewModel);
+            var viewModel = Activator.CreateInstance<TViewModel>();//new TViewModel();
             var dataModelType = model.GetType();
             var dataModelProperties = dataModelType.GetProperties();
             foreach (var dataModelProperty in dataModelProperties)
@@ -49,6 +49,9 @@ namespace Shanlv.DomainModel.DataModel.Extend
             return viewModel;
         }
 
-        //public static void ToViewModel<>()
+        //public static void ToViewModel<>(this object model)
+        //{
+
+        //}
     }
 }
