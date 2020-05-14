@@ -6,7 +6,7 @@ namespace Shanlv.IBll
     public interface IBaseService<T> where T : class, new()
     {
 
-        int Add(T model);
+        T Add(T model);
 
 
         //public void Method()

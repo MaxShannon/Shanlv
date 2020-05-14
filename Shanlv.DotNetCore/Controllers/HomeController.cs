@@ -4,7 +4,7 @@ using Shanlv.DotNetCore.Models;
 using Shanlv.EfDbModels;
 using System.Diagnostics;
 using System.Linq;
-using Shanlv.DomainModel;
+using Shanlv.DomainModel.DataModel.DataTableModel;
 
 namespace Shanlv.DotNetCore.Controllers
 {

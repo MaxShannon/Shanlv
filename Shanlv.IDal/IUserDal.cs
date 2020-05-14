@@ -1,7 +1,6 @@
-﻿using System.Collections;
+﻿using Shanlv.DomainModel.DataModel.BaseDataTableModel;
+using Shanlv.DomainModel.DataModel.DataTableModel;
 using System.Collections.Generic;
-using Shanlv.DomainModel;
-using Shanlv.DomainModel.ViewModel;
 
 namespace Shanlv.IDal
 {

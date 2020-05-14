@@ -1,19 +1,21 @@
-﻿using Shanlv.DomainModel;
+﻿using Shanlv.DomainModel.DataModel.BaseDataTableModel;
 using Shanlv.EfDbModels;
 using Shanlv.IDal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Shanlv.DomainModel.DataModel.DataTableModel;
 
 namespace Shanlv.Dal
 {
     public class UserDal : BaseDal<User>, IUserDal//UserViewModel
     {
+        private readonly ShanlvDbContext _db;
 
-        public UserDal(ShanlvDbContext db)
+        public UserDal(ShanlvDbContext db) : base(db)
         {
-            Db = db;
+            _db = db;
         }
 
 
@@ -31,23 +33,11 @@ namespace Shanlv.Dal
 
         public User GetUserById(int id)
         {
-            var user = Db.Users.Find(id);
+            var user = _db.Users.Find(id);
             return user;
         }
 
-        public IQueryable<User> GetEntities(Expression<Func<User, bool>> whereLambda)
-        {
-            return Db.Users.Where(whereLambda);
-        }
 
-        public IQueryable<User> GetAllEntities(Expression<Func<User, bool>> whereLambda)
-        {
-            throw new NotImplementedException();
-        }
 
-        public IQueryable<User> GetPageEntities<T2>(int pageSize, int pageIndex, out int total, Expression<Func<User, bool>> whereLambda, Expression<Func<User, T2>> orderByLambda, bool isAsn)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

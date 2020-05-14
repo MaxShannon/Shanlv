@@ -1,22 +1,26 @@
 ﻿using System;
 using Shanlv.EfDbModels;
 using Shanlv.IBll;
+using Shanlv.IDal;
 
 namespace Shanlv.Bll
 {
-    public class BaseService<T> : IBaseService<T> where T : class, new()
+    public class BaseService<T> where T : class, new() //: IBaseService<T> 
     {
-        private readonly ShanlvDbContext _db;
+        protected ShanlvDbContext Db;
 
-        public BaseService(ShanlvDbContext db)
+        public BaseService()
         {
-            _db = db;
+            //_db = db;
         }
 
-        public int Add(T model)
+        public T Add(T model)
         {
-            _db.Set<T>().Add(model);
-            return _db.SaveChanges();
+            //return baseDal.Add(model);
+            Db.Set<T>().Add(model);
+
+            //return Db.SaveChanges();
+            return model;
         }
 
     }

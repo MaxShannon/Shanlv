@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Shanlv.Bll;
-using Shanlv.Dal;
 using Shanlv.DomainModel.ViewModel;
 using Shanlv.EfDbModels;
 using Shanlv.IBll;
-using Shanlv.IDal;
 
 namespace Shanlv.DotNetCore.Controllers
 {
@@ -20,21 +12,17 @@ namespace Shanlv.DotNetCore.Controllers
         private readonly ShanlvDbContext _shanlvDbContext;
         private readonly IUserService _userService;
 
-        public UserController(ILogger<HomeController> logger, ShanlvDbContext shanlvDbContext, IUserService userService)//
+        public UserController(ILogger<HomeController> logger, ShanlvDbContext shanlvDbContext, IUserService userService)
         {
             _logger = logger;
             _shanlvDbContext = shanlvDbContext;
             _userService = userService;
         }
 
-        public IActionResult Login(string userName, string password)
-        {
-            return Redirect(Url.Action("Index"));
-        }
-
         public IActionResult Index()
         {
-            return View();
+            _userService.GetAllUser();
+            return View(_userService.GetAllUser());
         }
 
 
@@ -42,10 +30,13 @@ namespace Shanlv.DotNetCore.Controllers
         //[HttpPost]
         public IActionResult Add(UserViewModel model)
         {
-            // ceshi
-            model.UserName = "newMax";
-            _userService.Add(model);
-            return Json("");
+            if (ModelState.IsValid)
+            {
+                model.UserName = "newMax";
+                _userService.Add(model);
+            }
+
+            return RedirectToAction(nameof(Index), new { });
         }
     }
 }

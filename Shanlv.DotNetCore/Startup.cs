@@ -24,9 +24,12 @@ namespace Shanlv.DotNetCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserDal, UserDal>();
+
+            services.AddScoped<ISubsidiaryService, SubsidiaryService>();
+            services.AddScoped<ISubsidiaryDal, SubsidiaryDal>();
 
             services.AddDbContext<ShanlvDbContext>(a =>
             {
@@ -57,7 +60,7 @@ namespace Shanlv.DotNetCore
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Subsidiary}/{action=Index}/{id?}");
             });
         }
     }

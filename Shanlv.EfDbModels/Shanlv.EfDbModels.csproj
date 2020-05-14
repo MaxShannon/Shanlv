@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200506091324_Intial.cs" />
-    <Compile Remove="Migrations\20200506091324_Intial.Designer.cs" />
-    <Compile Remove="Migrations\20200506091424_Initial.cs" />
-    <Compile Remove="Migrations\20200506091424_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200511050253_Initial.cs" />
+    <Compile Remove="Migrations\20200511050253_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200511060214_Initial.cs" />
+    <Compile Remove="Migrations\20200511060214_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,5 +27,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Shanlv.DomainModel\Shanlv.DomainModel.csproj" />
   </ItemGroup>
+
 
 </Project>

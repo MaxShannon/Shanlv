@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Shanlv.DomainModel.ViewModel.UserViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link href="https://cdn.bootcss.com/bootstrap-select/2.0.0-beta1/css/bootstrap-select.css" rel="stylesheet">
+
+<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdn.bootcss.com/bootstrap-select/2.0.0-beta1/js/bootstrap-select.js"></script>
+
+
+<div class="form-group">
+    <label for="name">采购批次：</label>
+    <select name="modules" class='selectpicker show-tick form-control' data-live-search="true" id="field"></select>
+</div>
+
+
+<p>
+    <a asp-action="Create">创建</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.UserId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.UserId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    var tempIdStr = '';
+    $("#field").append(tempIdStr);
+    $.each(dataObj.purchaseBatchModels, function (i, item) {
+        var tempId = '<option  value="' + item.pb_ID + '">' + item.pb_ID + '</option>';
+        $("#field").append(tempId);
+    });
+//设置默认选中
+    $('#field').selectpicker('val', dataObj.purchaseBatchModels[0].pb_ID); 
+//更新 
+    $('#field').selectpicker('refresh');
+
+</script>

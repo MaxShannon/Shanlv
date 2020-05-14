@@ -1,0 +1,33 @@
+﻿@model SubsidiaryViewModel
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>添加</h1>
+
+<h4>单位</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SubsidiaryName" class="control-label"></label>
+                <input asp-for="SubsidiaryName" class="form-control" />
+                <span asp-validation-for="SubsidiaryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="添加" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">返回</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

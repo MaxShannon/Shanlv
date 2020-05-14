@@ -1,4 +1,6 @@
-﻿namespace Shanlv.DomainModel.ViewModel
+﻿using Shanlv.DomainModel.DataModel.DataTableModel;
+
+namespace Shanlv.DomainModel.ViewModel
 {
     public class UserViewModel
     {
