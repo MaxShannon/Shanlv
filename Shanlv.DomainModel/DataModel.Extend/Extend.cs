@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
@@ -49,9 +50,11 @@ namespace Shanlv.DomainModel.DataModel.Extend
             return viewModel;
         }
 
-        //public static void ToViewModel<>(this object model)
-        //{
+        public static IEnumerable<TViewModel> ToViewModels<TViewModel>(this IEnumerable<object> model)
+        {
+            model as IEnumerable
 
-        //}
+            return null;
+        }
     }
 }
