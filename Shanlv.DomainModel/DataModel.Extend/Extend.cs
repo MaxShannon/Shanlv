@@ -39,10 +39,17 @@ namespace Shanlv.DomainModel.DataModel.Extend
             var dataModelProperties = dataModelType.GetProperties();
             foreach (var dataModelProperty in dataModelProperties)
             {
+                // Set proproty value
                 var viewModelProperty = viewModelType.GetProperty(dataModelProperty.Name);
                 if (viewModelProperty == null)
                 {
-                    continue;
+                    // Set class value
+                    var viewModelPropertyWithOtherData = viewModelType.GetProperty(dataModelProperty.Name + "Name");
+                    if (viewModelPropertyWithOtherData == null)
+                    {
+                        continue;
+                    }
+
                 }
                 var value = dataModelProperty.GetValue(model);
                 viewModelProperty.SetValue(viewModel, value);
@@ -50,11 +57,15 @@ namespace Shanlv.DomainModel.DataModel.Extend
             return viewModel;
         }
 
-        public static IEnumerable<TViewModel> ToViewModels<TViewModel>(this IEnumerable<object> model)
+        public static IEnumerable<TViewModel> ToViewModels<TViewModel>(this IEnumerable<object> models)
         {
-            model as IEnumerable
-
-            return null;
+            List<TViewModel> viewModel = new List<TViewModel>();
+            foreach (var model in models)
+            {
+                var item = model.ToViewModel<TViewModel>();
+                viewModel.Add(item);
+            }
+            return viewModel;
         }
     }
 }

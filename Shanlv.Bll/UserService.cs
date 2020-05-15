@@ -30,7 +30,7 @@ namespace Shanlv.Bll
         {
             var list = _db.Users.Select(a => new UserViewModel
             {
-                UserId = a.Id,
+                //UserId = a.Id,
                 UserName = a.UserName
             }).ToList();
             return list;

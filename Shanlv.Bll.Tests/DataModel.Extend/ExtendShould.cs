@@ -44,45 +44,46 @@ namespace Shanlv.Bll.Tests.DataModel.Extend
                 new User
                 {
                     UserName = "Test UserName1",
-                    su
+                    Subsidiary = new Subsidiary(){ SubsidiaryName = "SubsidiaryName1"}
                 },
                 new User
                 {
-                    UserName = "Test UserName2"
+                    UserName = "Test UserName2",
+                     Subsidiary = new Subsidiary(){ SubsidiaryName = "SubsidiaryName2"}
                 },
                 new User
                 {
-                    UserName = "Test UserName3"
+                    UserName = "Test UserName3",
+                    Subsidiary = new Subsidiary(){ SubsidiaryName = "SubsidiaryName3"}
                 }
             };
             var enumDataModel = dataModel.AsEnumerable();
+            var resultViewModel = enumDataModel.ToViewModels<UserViewModel>();
+            var resultViewModels = resultViewModel.ToList();
 
             List<UserViewModel> expectViewModel = new List<UserViewModel>
             {
                 new UserViewModel
                 {
                     UserName = dataModel[0].UserName,
-                    SubsidiaryName = dataModel[0].Subsidiary.SubsidiaryName;
+                    SubsidiaryName = dataModel[0].Subsidiary.SubsidiaryName
                 },
                 new UserViewModel
                 {
-                    SubsidiaryName = dataModel[1].SubsidiaryName
+                     UserName = dataModel[0].UserName,
+                    SubsidiaryName = dataModel[1].Subsidiary.SubsidiaryName
                 },
                 new UserViewModel
                 {
-                    SubsidiaryName = dataModel[2].SubsidiaryName
+                     UserName = dataModel[0].UserName,
+                    SubsidiaryName = dataModel[2].Subsidiary.SubsidiaryName
                 }
             };
-            var enumViewModel = viewModel.AsEnumerable();
 
-            var resultViewModel = enumDataModel.ToViewModels<SubsidiaryViewModel>();
-
-            var resultViewModels = resultViewModel as IEnumerable<SubsidiaryViewModel>;
-
-            (resultViewModels .asl)
-            for (int i = 0; i < resultViewModels.Count(); i++)
+            for (int i = 0; i < resultViewModels.Count; i++)
             {
-                Assert.Equal(resultViewModels[i].SubsidiaryName, enumViewModels[i].SubsidiaryName);
+                Assert.Equal(expectViewModel[i].SubsidiaryName, resultViewModels[i].SubsidiaryName);
+                Assert.Equal(expectViewModel[i].UserName, resultViewModels[i].UserName);
             }
 
         }
