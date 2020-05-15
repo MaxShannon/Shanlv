@@ -44,12 +44,15 @@ namespace Shanlv.DomainModel.DataModel.Extend
                 if (viewModelProperty == null)
                 {
                     // Set class value
-                    var viewModelPropertyWithOtherData = viewModelType.GetProperty(dataModelProperty.Name + "Name");
-                    if (viewModelPropertyWithOtherData == null)
-                    {
-                        continue;
-                    }
+                    //var viewModelPropertyWithOtherData = viewModelType.GetProperty(dataModelProperty.Name + "Name");
+                    //if (viewModelPropertyWithOtherData == null)
+                    //{
+                    //    continue;
+                    //}
 
+                    //var value = viewModelPropertyWithOtherData.GetValue(model);
+                    //viewModelProperty.SetValue(viewModel, value);
+                    continue;
                 }
                 var value = dataModelProperty.GetValue(model);
                 viewModelProperty.SetValue(viewModel, value);

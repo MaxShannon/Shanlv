@@ -24,7 +24,7 @@ namespace Shanlv.Bll
             // check ok
             var query = _subsidiaryDal.GetAllEntities(null);
             var list = query.ToList();
-            var viewModelList = list.ToViewModel<IEnumerable<SubsidiaryViewModel>>();
+            var viewModelList = list.ToViewModels<SubsidiaryViewModel>();
             //var viewModelList = list.ToViewModel<List<SubsidiaryViewModel>>();
             return viewModelList;
         }

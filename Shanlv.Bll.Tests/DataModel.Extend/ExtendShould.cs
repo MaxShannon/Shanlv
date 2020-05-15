@@ -44,17 +44,17 @@ namespace Shanlv.Bll.Tests.DataModel.Extend
                 new User
                 {
                     UserName = "Test UserName1",
-                    Subsidiary = new Subsidiary(){ SubsidiaryName = "SubsidiaryName1"}
+                    //Subsidiary = new Subsidiary(){ SubsidiaryName = "SubsidiaryName1"}
                 },
                 new User
                 {
                     UserName = "Test UserName2",
-                     Subsidiary = new Subsidiary(){ SubsidiaryName = "SubsidiaryName2"}
+                     //Subsidiary = new Subsidiary(){ SubsidiaryName = "SubsidiaryName2"}
                 },
                 new User
                 {
                     UserName = "Test UserName3",
-                    Subsidiary = new Subsidiary(){ SubsidiaryName = "SubsidiaryName3"}
+                    //Subsidiary = new Subsidiary(){ SubsidiaryName = "SubsidiaryName3"}
                 }
             };
             var enumDataModel = dataModel.AsEnumerable();
@@ -66,23 +66,23 @@ namespace Shanlv.Bll.Tests.DataModel.Extend
                 new UserViewModel
                 {
                     UserName = dataModel[0].UserName,
-                    SubsidiaryName = dataModel[0].Subsidiary.SubsidiaryName
+                    //SubsidiaryName = dataModel[0].Subsidiary.SubsidiaryName
                 },
                 new UserViewModel
                 {
-                     UserName = dataModel[0].UserName,
-                    SubsidiaryName = dataModel[1].Subsidiary.SubsidiaryName
+                     UserName = dataModel[1].UserName,
+                    //SubsidiaryName = dataModel[1].Subsidiary.SubsidiaryName
                 },
                 new UserViewModel
                 {
-                     UserName = dataModel[0].UserName,
-                    SubsidiaryName = dataModel[2].Subsidiary.SubsidiaryName
+                     UserName = dataModel[2].UserName,
+                    //SubsidiaryName = dataModel[2].Subsidiary.SubsidiaryName
                 }
             };
 
             for (int i = 0; i < resultViewModels.Count; i++)
             {
-                Assert.Equal(expectViewModel[i].SubsidiaryName, resultViewModels[i].SubsidiaryName);
+                //Assert.Equal(expectViewModel[i].SubsidiaryName, resultViewModels[i].SubsidiaryName);
                 Assert.Equal(expectViewModel[i].UserName, resultViewModels[i].UserName);
             }
 
